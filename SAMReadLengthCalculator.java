@@ -32,20 +32,11 @@ public class SAMReadLengthCalculator {
                 continue;
             }
 
-            String[] tempFields = line.split("\t");
-            String[] fields = new String[tempFields.length]; // Create ORAM array
-
-            // Manually copy values to ORAM array
-            for (int i = 0; i < tempFields.length; i++) {
-                fields[i] = tempFields[i];
-            }
-
+            String[] fields = line.split("\t");
             if (fields.length > 9) {
                 String readSequence = fields[9];
-                if (readSequence != null) {
-                    totalReadLength += readSequence.length();
-                    readCount++;
-                }
+                totalReadLength += readSequence.length();
+                readCount++;
             }
         }
 
